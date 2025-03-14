@@ -1,3 +1,8 @@
+### Perbandingan Hasil Performance Testing Sebelum dan Sesudah Optimisasi
+
+Terdapat peningkatan yang cukup signifikan pada hasil _performance testing_ di JMeter setelah dilakukan optimisasi. Misalnya, untuk pengetesan _request_ dengan _endpoint_ `/all-student-name`, terdapat peningkatan rata-rata sample time dari yang semula sekitar 4435,7 ms menjadi hanya sekitar 333,8 ms.<br/>
+
+
 ## Reflection
 
 1. _Performance testing_ pada JMeter berfungsi untuk menguji performa aplikasi secara eksternal. Dalam kata lain, pengetesan digunakan untuk mengukur daya kemampuan (_throughput_) aplikasi dalam menangani banyak request pada satu periode tertentu. Sementara itu, _profiling_ pada IntelliJ profiler cenderung berfungsi untuk menguji performa aplikasi dari sisi internalnya, seperti waktu (_CPU time_) yang dibutuhkan sekumpulan _method_ dalam menjalankan satu jenis fitur/_request_. Pengetesan ini berfungsi untuk mengidentifikasi bagian-bagian tertentu pada program yang relatif memakan waktu (inefisien) sehingga kemudian bisa dilakukan _refactoring_ untuk meningkatkan performa aplikasi dalam menjalankan fungsi tersebut.
@@ -12,7 +17,7 @@
 
 6. Pertama, uji _profiling_ akan dilakukan beberapa kali untuk mendapatkan performa rata-rata. Jika performa rata-rata yang dihasilkan masih tidak konsisten dengan hasil _performance test_, maka perlu diadakan evaluasi kembali terhadap masing-masing tes. Misalnya jika hasil _profiling_ menunjukkan performa yang bagus namun hasil _performance test_ menunjukkan sebaliknya, maka pengaturan ukuran properti _thread_ mungkin perlu dievaluasi ulang. Namun, jika ukuran properti dirasa sudah cukup tepat untuk mengetes performa aplikasi, maka bisa diasumsikan bahwa terdapat isu pada performa _throughput_ aplikasi. Hal ini kemudian bisa diperbaiki dengan berbagai metode tergantung pada letak isunya, seperti peningkatan pada performa _database_, implementasi _concurrency_ pada program, dan lain-lain.
 
-7. Pertama, saya akan mencoba untuk menganalisis dan mengidentifikasi bagian kode pada _method_ yang berpotensi menyebabkan penurunan performa, misalnya seperti penggunaan _nested loop_ atau proses _query_ yang dilakukan berulang-ulang. Selanjutnya, saya akan mencari dan mengimplementasikan algoritma yang lebih efisien untuk menggantikan bagian kode sebelumnya yang kurang efisien. Saya kemudian melakukan _profiling_ ulang dan membandingkan _runtime_ program yang telah dimodifikasi dengan uji _profiling_ sebelumnya untuk memastikan adanya peningkatan performa. Untuk memastikan bahwa fungsionalitas program tetap terjaga, saya juga mengecek respons yang dikeluarkan program terhadap _request_ dan memastikan bahwa respons tersebut menghasilkan _output_ yang sama dengan semula.
+7. Pertama, saya akan mencoba untuk menganalisis dan mengidentifikasi bagian kode pada _method_ yang berpotensi menyebabkan penurunan performa, misalnya seperti penggunaan _nested loop_ atau proses _query_ yang dilakukan berulang-ulang. Selanjutnya, saya akan mencari dan mengimplementasikan algoritma yang lebih efisien untuk menggantikan bagian kode sebelumnya yang kurang efisien. Saya kemudian melakukan _profiling_ ulang dan membandingkan _runtime_ program yang telah dimodifikasi dengan uji _profiling_ sebelumnya untuk memastikan adanya peningkatan performa. Untuk memastikan bahwa fungsionalitas program tetap terjaga, saya juga mengecek respons yang dikeluarkan program terhadap _request_ dan memastikan bahwa respons tersebut menghasilkan _output_ yang sama dengan semula.<br/>
 
 
 Link screenshot performance test:
